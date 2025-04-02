@@ -9,15 +9,11 @@ import {
 } from "./styles";
 
 import Logo from "../../assets/Logo.svg";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/Cart/CartContext";
 
 export function Header() {
-  const products = [
-    "Product 1",
-    "Product 2",
-    "Product 3",
-    "Product 4",
-    "Product 5",
-  ];
+  const { items } = useContext(CartContext);
 
   return (
     <HeaderContainer>
@@ -27,10 +23,10 @@ export function Header() {
           <MapPin size={22} weight="fill" />
           <span>Porto Alegre, RS</span>
         </LocationContainer>
-        <NavLink to="/checkout" title="Checkout" end>
+        <NavLink to="/checkout" title="Checkout">
           <CartContainer>
             <ShoppingCart size={19} weight="fill" />
-            {products.length > 0 && <Counter>{products.length}</Counter>}
+            {items.length > 0 && <Counter>{items.length}</Counter>}
           </CartContainer>
         </NavLink>
       </nav>

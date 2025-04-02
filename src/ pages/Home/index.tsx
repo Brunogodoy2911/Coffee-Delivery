@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Coffee, Package, ShoppingCartSimple, Timer } from "phosphor-react";
 import {
   CoffeeContainer,
@@ -19,12 +19,16 @@ import {
 
 import IntroImage from "../../assets/IntroImage.svg";
 
-import { CardCoffee } from "./components/CoffeeCard";
+import { CatalogItem } from "./components/CatalogItem";
 
 import { coffeeListData } from "../../data/coffeeList";
+import { CartContext } from "../../contexts/Cart/CartContext";
 
 export function Home() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [coffeeList, setCoffeeList] = useState(coffeeListData);
+
+  const { addNewItemToCart } = useContext(CartContext);
 
   return (
     <HomeContainer>
@@ -76,15 +80,17 @@ export function Home() {
         <p>Nossos cafés</p>
 
         <List>
-          {coffeeList.map((coffee, index) => {
+          {coffeeList.map((coffee) => {
             return (
-              <CardCoffee
-                key={index}
+              <CatalogItem
+                key={coffee.id}
+                itemId={coffee.id}
                 image={coffee.image}
                 tags={coffee.tags}
                 title={coffee.title}
                 content={coffee.content}
                 price={coffee.price}
+                handleCartButton={(coffee) => addNewItemToCart(coffee)}
               />
             );
           })}

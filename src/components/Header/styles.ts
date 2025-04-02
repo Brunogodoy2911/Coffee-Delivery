@@ -5,6 +5,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -16,6 +17,7 @@ export const HeaderContainer = styled.div`
   background: ${(props) => props.theme.background};
 
   padding-inline: 10rem;
+  z-index: 1;
 
   nav {
     display: flex;

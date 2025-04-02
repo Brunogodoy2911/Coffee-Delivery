@@ -17,8 +17,6 @@ export const Intro = styled.section`
   align-items: center;
 
   height: 34rem;
-
-  margin-top: 5.875rem;
 `;
 
 export const Wrapper = styled.div`
@@ -118,8 +116,7 @@ export const List = styled.div`
   display: flex;
   align-items: center;
 
-  width: 70rem;
+  width: 72rem;
 
   flex-wrap: wrap;
-  gap: 2rem;
 `;

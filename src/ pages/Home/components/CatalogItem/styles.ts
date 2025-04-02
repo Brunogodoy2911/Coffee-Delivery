@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { mixins } from "../../../../styles/mixins";
 
-export const Card = styled.div`
+export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,10 @@ export const Card = styled.div`
 
   width: 16rem;
   height: 19.375rem;
+
   padding-bottom: 1.25rem;
+  margin-right: 2rem;
+  margin-bottom: 2.5rem;
 
   background: ${(props) => props.theme["base-card"]};
   border-radius: 6px 36px 6px 36px;
@@ -87,28 +90,6 @@ export const BuyActions = styled.div`
   display: flex;
   gap: 0.5rem;
 `;
-export const Counter = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  width: 4.5rem;
-  height: 2.375rem;
-
-  background: ${(props) => props.theme["base-button"]};
-  color: ${(props) => props.theme.purple};
-  border-radius: 8px;
-
-  span {
-    ${mixins.fonts.textM}
-    color: ${(props) => props.theme["base-title"]};
-  }
-
-  svg:hover {
-    color: ${(props) => props.theme["purple-dark"]};
-    cursor: pointer;
-  }
-`;
 
 export const CartButton = styled.button`
   display: flex;
@@ -125,5 +106,10 @@ export const CartButton = styled.button`
   transition: background 0.2s;
   &:hover {
     background: ${(props) => props.theme.purple};
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;

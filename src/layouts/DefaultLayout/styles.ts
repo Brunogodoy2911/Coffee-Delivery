@@ -5,4 +5,5 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
 
   padding-inline: 10rem;
+  margin-top: 6.5rem;
 `;
